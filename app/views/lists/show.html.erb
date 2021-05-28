@@ -1,0 +1,8 @@
+<h1>List: <%= @list.name %></h1> <!-- @list comes from def show in list controller -->
+<%= link_to "All lists", lists_path %>
+
+<%= simple_form_for [@list, @bookmark], method: :post, url: list_bookmarks_path(@list) do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie %>
+  <%= f.button :submit %>
+<% end %>
